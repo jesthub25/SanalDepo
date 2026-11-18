@@ -1,0 +1,123 @@
+# ============================================================
+#   SanalDepo - Sanal sandik / depo eklentisi
+#   Gelistirici: Jestron
+#   Renk kodlari: &a &l ...   HEX (1.16+): &#FFAA00
+# ============================================================
+
+veritabani:
+  # SQLITE : tek sunucu, kurulum gerektirmez (onerilen)
+  # MYSQL  : MySQL / MariaDB (buyuk sunucu veya ayni veriyi paylasan coklu sunucu)
+  tur: SQLITE
+  tablo-oneki: "sanaldepo_"
+  sqlite:
+    dosya: "depolar.db"
+  mysql:
+    host: "localhost"
+    port: 3306
+    veritabani: "minecraft"
+    kullanici: "root"
+    sifre: ""
+    ssl: false
+    havuz-boyutu: 6
+    ek-ayarlar: "useUnicode=true&characterEncoding=utf8&autoReconnect=true"
+  # BungeeCord/Velocity agindaki birden fazla sunucu AYNI MySQL'i kullaniyorsa 40 yapin.
+  # Oyuncu girdikten bu kadar tick sonra depolari yuklenir (onceki sunucunun kaydi bitsin diye).
+  yukleme-gecikmesi-tick: 0
+  # AUTO   : Paper'da Paper'in kendi esya formati (surum yukseltmelerinde en guvenlisi), Spigot'ta Bukkit formati
+  # BUKKIT : her zaman Bukkit formati (Paper <-> Spigot arasi gecis yapacaksaniz bunu secin)
+  esya-formati: AUTO
+
+depo:
+  # Hicbir sanaldepo.depo.<sayi> yetkisi olmayan oyuncunun depo sayisi (0 = hic)
+  varsayilan-hak: 1
+  # Bir oyuncunun sahip olabilecegi en fazla depo. OP dahil kimse bunu gecemez.
+  # En fazla 28 olabilir (54'luk menunun kenarlar haricindeki ic slot sayisi).
+  maksimum-hak: 28
+  # true  : OP'ler otomatik olarak maksimum-hak kadar depoya sahip olur
+  # false : OP'ler de sadece kendilerine acikca verilen sanaldepo.depo.<sayi> yetkisi kadar depo kullanir
+  op-maksimum-alir: true
+  # Acik depolarin ve basarisiz kayitlarin otomatik kaydedilme araligi (dakika)
+  otomatik-kayit-dakika: 3
+  # Spam'i onlemek icin iki depo acma arasindaki en kisa sure (milisaniye)
+  acma-bekleme-ms: 350
+  # Menuden acilan depo kapatilinca menuye geri donulsun mu
+  kapaninca-menuye-don: true
+  # Yaratici moddaki oyuncularin depo kullanmasini engelle (creative esyalarinin survival'a tasinmasini onler)
+  creative-engelle: true
+  # Depo kullanilamayan dunyalar
+  engelli-dunyalar: []
+  # Depoya konulamayan esyalar (Material isimleri) ornek: [BEDROCK, COMMAND_BLOCK, BARRIER]
+  yasakli-esyalar: []
+  # Yoneticiler baskasinin deposunu actiginda konsola log yaz
+  admin-erisim-log: true
+
+menu:
+  baslik: "&8&lDepolarin &8(&6%hak%&8/&6%maks%&8)"
+  admin-baslik: "&4&l%oyuncu% &8» &8&lDepolar"
+  # Kenarlar dama deseninde iki malzeme ile, koseler ayri malzeme ile doldurulur
+  kenar:
+    malzeme: GRAY_STAINED_GLASS_PANE
+    isim: " "
+  kenar-alternatif:
+    malzeme: BLACK_STAINED_GLASS_PANE
+    isim: " "
+  kose:
+    malzeme: LIGHT_BLUE_STAINED_GLASS_PANE
+    isim: " "
+  # maksimum-hak'tan sonraki bos ic slotlar (AIR = bos birak)
+  bos-slot:
+    malzeme: AIR
+    isim: " "
+  # Sandik simgesinin adet sayisi depo numarasini gostersin (1, 2, 3 ...)
+  numarayi-adet-olarak-goster: true
+  acik-depo:
+    malzeme: CHEST
+    isim: "&6&lDepo #%no%"
+    lore:
+      - "&8▪ &7Doluluk: &e%dolu%&7/&e%boyut% &8(&e%yuzde%%&8)"
+      - "&8▪ %bar%"
+      - ""
+      - "&a▶ Acmak icin tikla"
+      - "&8/depo %no%"
+  kilitli-depo:
+    # false: hakkin olmayan depolar menude hic gosterilmez
+    goster: true
+    malzeme: BARRIER
+    isim: "&c&lDepo #%no% &8(Kilitli)"
+    lore:
+      - "&7Bu depoya erisimin yok."
+      - "&7Daha fazla depo icin yetki"
+      - "&7satin alabilirsin."
+  # Menunun alt ortasindaki bilgi simgesi (slot bir kenar slotu olmali: 0-8, 45-53, 9, 17, 18, 26, 27, 35, 36, 44)
+  bilgi:
+    aktif: true
+    slot: 49
+    malzeme: PLAYER_HEAD
+    isim: "&6&l%oyuncu%"
+    lore:
+      - "&8▪ &7Depo hakkin: &e%hak%&7/&e%maks%"
+      - "&8▪ &7Toplam dolu slot: &e%toplam%"
+      - ""
+      - "&7Hizli erisim: &e/depo <numara>"
+    admin-lore:
+      - "&8▪ &7UUID: &8%uuid%"
+      - "&8▪ &7Durum: %durum%"
+      - "&8▪ &7Depo hakki: &e%hak%"
+      - "&8▪ &7Kayitli depo: &e%kayitli%"
+      - "&8▪ &7Toplam dolu slot: &e%toplam%"
+      - ""
+      - "&c&oYonetici gorunumu"
+
+depo-ekrani:
+  baslik: "&8Depo &6#%no%"
+  admin-baslik: "&c%oyuncu% &8» &8Depo &6#%no%"
+
+# Minecraft ses anahtarlari (bos birakirsaniz ses calinmaz)
+sesler:
+  menu-ac: "block.chest.open"
+  depo-ac: "block.chest.open"
+  depo-kapat: "block.chest.close"
+  kilitli: "block.note_block.bass"
+  hata: "entity.villager.no"
+  ses-seviyesi: 0.7
+  perde: 1.0

@@ -1,0 +1,52 @@
+name: SanalDepo
+version: '${project.version}'
+main: org.jestron.sanaldepo.SanalDepo
+api-version: '1.16'
+author: Jestron
+description: PlayerVaults mantiginda sanal depo / sandik eklentisi
+website: https://github.com/jesthub25/SanalDepo
+
+commands:
+  depo:
+    description: Sanal depo menusunu veya belirtilen depoyu acar.
+    usage: /depo [numara] | /depo <oyuncu> [numara]
+    aliases: [sanaldepo]
+
+permissions:
+  sanaldepo.kullan:
+    description: /depo komutunu ve kendi depolarini kullanma.
+    default: true
+  sanaldepo.admin.gor:
+    description: Baska oyuncularin depolarini goruntuleme (/depo <oyuncu> [no]).
+    default: op
+  sanaldepo.admin.duzenle:
+    description: Baska oyuncularin depolarina esya koyma / alma.
+    default: op
+    children:
+      sanaldepo.admin.gor: true
+  sanaldepo.admin.yenile:
+    description: /depo yenile komutu.
+    default: op
+  sanaldepo.bypass.creative:
+    description: Yaratici modda depo kullanabilme.
+    default: op
+  sanaldepo.bypass.dunya:
+    description: Engelli dunyalarda depo kullanabilme.
+    default: op
+  sanaldepo.bypass.bekleme:
+    description: Acma bekleme suresine takilmama.
+    default: op
+  sanaldepo.bypass.yasakli:
+    description: Yasakli esyalari depoya koyabilme.
+    default: op
+  sanaldepo.admin:
+    description: Tum yonetici yetkileri.
+    default: op
+    children:
+      sanaldepo.admin.gor: true
+      sanaldepo.admin.duzenle: true
+      sanaldepo.admin.yenile: true
+      sanaldepo.bypass.creative: true
+      sanaldepo.bypass.dunya: true
+      sanaldepo.bypass.bekleme: true
+      sanaldepo.bypass.yasakli: true

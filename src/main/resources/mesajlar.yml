@@ -1,0 +1,32 @@
+# SanalDepo mesajlari - renk kodlari: &a &l ... HEX: &#FFAA00
+onek: "&8[&6SanalDepo&8] &r"
+
+sadece-oyuncu: "&cBu komut sadece oyun icinden kullanilabilir."
+yetki-yok: "&cBunun icin yetkin yok."
+yukleniyor: "&7Depo verileri yukleniyor, lutfen bekle..."
+yukleme-hatasi: "&cDepo verileri yuklenemedi! Lutfen bir yetkiliye bildir."
+depo-bozuk: "&c#%no% numarali depo okunamadi ve guvenlik icin kilitlendi. Bir yetkiliye bildir."
+gecersiz-numara: "&cGecersiz depo numarasi! &71 ile &e%maks% &7arasinda bir sayi gir."
+depo-yok: "&c#%no% numarali depoya erisimin yok. &7Depo hakkin: &e%hak%"
+depo-kilitli: "&cBu depo kilitli! &7Daha fazla depo icin yetki gerekir."
+hic-depo-yok: "&cHic depo hakkin bulunmuyor."
+bekle: "&cCok hizli! Biraz bekle."
+creative: "&cYaratici / izleyici modda depo kullanamazsin."
+dunya-engelli: "&cBu dunyada depo kullanilamaz."
+yasakli-esya: "&cBu esya depoya konulamaz!"
+salt-okunur: "&eBu depoyu sadece goruntuleyebilirsin (duzenleme yetkin yok)."
+oyuncu-bulunamadi: "&c%oyuncu% &7adli oyuncu bulunamadi (sunucuya hic girmemis)."
+yenilendi: "&aYapilandirma ve mesajlar yeniden yuklendi."
+cevrimici: "&aCevrimici"
+cevrimdisi: "&cCevrimdisi"
+bilinmiyor: "&7Bilinmiyor"
+
+yardim:
+  - "&8&m----------&r &6&lSanalDepo &8&m----------"
+  - "&e/depo &8- &7Depo menusunu acar"
+  - "&e/depo <numara> &8- &7Belirtilen depoyu direkt acar"
+  - "&e/depo yardim &8- &7Bu yardim sayfasi"
+yardim-admin:
+  - "&c/depo <oyuncu> &8- &7Oyuncunun depo menusunu acar"
+  - "&c/depo <oyuncu> <numara> &8- &7Oyuncunun deposunu acar"
+  - "&c/depo yenile &8- &7Config ve mesajlari yeniden yukler"
