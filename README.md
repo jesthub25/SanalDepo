@@ -97,4 +97,4 @@ sanaldepo_players (uuid, name, name_lower, last_seen)  -- çevrimdışı oyuncu 
 ```
 mvn package
 ```
-Çıktı: `target/SanalDepo-<sürüm>.jar`. Her `v*` etiketi GitHub Actions ile derlenip Release olarak yayınlanır.
+Çıktı: `target/SanalDepo-<sürüm>.jar`. main dalına her push GitHub Actions ile derlenir ve pom.xml sürümüyle (`v<sürüm>`) Release olarak yayınlanır / güncellenir.
